@@ -1,13 +1,22 @@
 {
     init: function(elevators, floors) {
-        var elevator = elevators[0]; 
+        var e1 = elevators[0]; 
+        var e2 = elevators[1]; 
 
-        elevator.on("idle", function() {
-            elevator.goToFloor(0);
+        e1.on("idle", function() {
+            e1.goToFloor(0);
         });
-        
-        elevator.on("floor_button_pressed", function(floorNum) {
-            elevator.goToFloor(floorNum);
+
+        e2.on("idle", function() {
+            e2.goToFloor(0);
+        });
+
+        e1.on("floor_button_pressed", function(floorNum) {
+            e1.goToFloor(floorNum);
+        });
+
+        e2.on("floor_button_pressed", function(floorNum) {
+            e2.goToFloor(floorNum);
         });
 
     },
